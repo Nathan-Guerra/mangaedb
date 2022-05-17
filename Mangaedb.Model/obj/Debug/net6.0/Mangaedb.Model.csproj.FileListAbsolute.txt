@@ -1,0 +1,12 @@
+C:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb.Model\bin\Debug\net6.0\Mangaedb.Model.deps.json
+C:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb.Model\bin\Debug\net6.0\Mangaedb.Model.dll
+C:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb.Model\bin\Debug\net6.0\Mangaedb.Model.pdb
+C:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb.Model\obj\Debug\net6.0\Mangaedb.Model.csproj.AssemblyReference.cache
+C:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb.Model\obj\Debug\net6.0\Mangaedb.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb.Model\obj\Debug\net6.0\Mangaedb.Model.AssemblyInfoInputs.cache
+C:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb.Model\obj\Debug\net6.0\Mangaedb.Model.AssemblyInfo.cs
+C:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb.Model\obj\Debug\net6.0\Mangaedb.Model.csproj.CoreCompileInputs.cache
+C:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb.Model\obj\Debug\net6.0\Mangaedb.Model.dll
+C:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb.Model\obj\Debug\net6.0\refint\Mangaedb.Model.dll
+C:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb.Model\obj\Debug\net6.0\Mangaedb.Model.pdb
+C:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb.Model\obj\Debug\net6.0\ref\Mangaedb.Model.dll
