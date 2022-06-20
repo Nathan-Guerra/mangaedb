@@ -20,14 +20,18 @@ namespace Mangaedb.Model
 
         public virtual DbSet<Categoria> Categoria { get; set; }
         public virtual DbSet<CategoriaManga> CategoriaManga { get; set; }
+        public virtual DbSet<Comentario> Comentario { get; set; }
+        public virtual DbSet<CurtidaComentario> CurtidaComentario { get; set; }
+        public virtual DbSet<CurtidaManga> CurtidaManga { get; set; }
         public virtual DbSet<Manga> Manga { get; set; }
+        public virtual DbSet<Usuario> Usuario { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                // warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-FOTF1HF\\SQLEXPRESS;Initial Catalog=mangaedb;Integrated Security=True");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-FOTF1HF\\SQLEXPRESS;Initial Catalog=mangaedb;User ID=mangaedb;Password=mangaedb");
             }
         }
 
@@ -44,6 +48,71 @@ namespace Mangaedb.Model
                     .WithMany(p => p.CategoriaManga)
                     .HasForeignKey(d => d.IdManga)
                     .HasConstraintName("FK_categoria_manga_manga");
+            });
+
+            modelBuilder.Entity<Comentario>(entity =>
+            {
+                entity.HasOne(d => d.IdMangaNavigation)
+                    .WithMany(p => p.Comentario)
+                    .HasForeignKey(d => d.IdManga)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_comentario_manga");
+
+                entity.HasOne(d => d.IdUsuarioNavigation)
+                    .WithMany(p => p.Comentario)
+                    .HasForeignKey(d => d.IdUsuario)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_comentario_usuario");
+            });
+
+            modelBuilder.Entity<CurtidaComentario>(entity =>
+            {
+                entity.HasOne(d => d.IdComentarioNavigation)
+                    .WithMany(p => p.CurtidaComentario)
+                    .HasForeignKey(d => d.IdComentario)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_curtida_comentario_comentario");
+
+                entity.HasOne(d => d.IdUsuarioNavigation)
+                    .WithMany(p => p.CurtidaComentario)
+                    .HasForeignKey(d => d.IdUsuario)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_curtida_comentario_usuario");
+            });
+
+            modelBuilder.Entity<CurtidaManga>(entity =>
+            {
+                entity.HasOne(d => d.IdMangaNavigation)
+                    .WithMany(p => p.CurtidaManga)
+                    .HasForeignKey(d => d.IdManga)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_curtida_manga");
+
+                entity.HasOne(d => d.IdUsuarioNavigation)
+                    .WithMany(p => p.CurtidaManga)
+                    .HasForeignKey(d => d.IdUsuario)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_curtida_usuario");
+            });
+
+            modelBuilder.Entity<Manga>(entity =>
+            {
+                entity.HasMany(d => d.IdUsuario)
+                    .WithMany(p => p.IdManga)
+                    .UsingEntity<Dictionary<string, object>>(
+                        "Favorito",
+                        l => l.HasOne<Usuario>().WithMany().HasForeignKey("IdUsuario").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_favorito_usuario"),
+                        r => r.HasOne<Manga>().WithMany().HasForeignKey("IdManga").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_favorito_manga"),
+                        j =>
+                        {
+                            j.HasKey("IdManga", "IdUsuario");
+
+                            j.ToTable("favorito");
+
+                            j.IndexerProperty<int>("IdManga").HasColumnName("id_manga");
+
+                            j.IndexerProperty<int>("IdUsuario").HasColumnName("id_usuario");
+                        });
             });
 
             OnModelCreatingPartial(modelBuilder);

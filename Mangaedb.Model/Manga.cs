@@ -14,6 +14,9 @@ namespace Mangaedb.Model
         public Manga()
         {
             CategoriaManga = new HashSet<CategoriaManga>();
+            Comentario = new HashSet<Comentario>();
+            CurtidaManga = new HashSet<CurtidaManga>();
+            IdUsuario = new HashSet<Usuario>();
         }
 
         [Key]
@@ -27,8 +30,15 @@ namespace Mangaedb.Model
         [Column("sinopse", TypeName = "text")]
         public string Sinopse { get; set; }
 
-        [Display(Name = "Categoria")]
         [InverseProperty("IdMangaNavigation")]
         public virtual ICollection<CategoriaManga> CategoriaManga { get; set; }
+        [InverseProperty("IdMangaNavigation")]
+        public virtual ICollection<Comentario> Comentario { get; set; }
+        [InverseProperty("IdMangaNavigation")]
+        public virtual ICollection<CurtidaManga> CurtidaManga { get; set; }
+
+        [ForeignKey("IdManga")]
+        [InverseProperty("IdManga")]
+        public virtual ICollection<Usuario> IdUsuario { get; set; }
     }
 }

@@ -8,23 +8,26 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Mangaedb.Model
 {
-    [Table("categoria_manga")]
-    [Index("IdCategoria", "IdManga", Name = "UK_CategoriaManga", IsUnique = true)]
-    public partial class CategoriaManga
+    [Table("curtida_manga")]
+    public partial class CurtidaManga
     {
         [Key]
         [Column("id")]
         public int Id { get; set; }
-        [Column("id_categoria")]
-        public int IdCategoria { get; set; }
         [Column("id_manga")]
         public int IdManga { get; set; }
+        [Column("id_usuario")]
+        public int IdUsuario { get; set; }
+        [Column("created_at", TypeName = "datetime")]
+        public DateTime CreatedAt { get; set; }
+        [Column("deleted_at", TypeName = "datetime")]
+        public DateTime? DeletedAt { get; set; }
 
-        [ForeignKey("IdCategoria")]
-        [InverseProperty("CategoriaManga")]
-        public virtual Categoria IdCategoriaNavigation { get; set; }
         [ForeignKey("IdManga")]
-        [InverseProperty("CategoriaManga")]
+        [InverseProperty("CurtidaManga")]
         public virtual Manga IdMangaNavigation { get; set; }
+        [ForeignKey("IdUsuario")]
+        [InverseProperty("CurtidaManga")]
+        public virtual Usuario IdUsuarioNavigation { get; set; }
     }
 }

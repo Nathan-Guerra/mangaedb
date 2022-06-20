@@ -22,7 +22,27 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[comentario]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[curtida_comentario]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[curtida_manga]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[favorito]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[manga]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[usuario]",
          "ObjectType": 0
       }
    ],
