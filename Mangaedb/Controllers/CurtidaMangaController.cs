@@ -1,32 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Mangaedb.Model;
-using Mangaedb.Services;
+
 
 namespace Mangaedb.Controllers
 {
     public class CurtidaMangaController : Controller, IDisposable
     {
         MangaedbContext _db = new MangaedbContext();
-
-        public ActionResult Index()
-        {
-            List<CurtidaManga> curtidas = _db.CurtidaManga.ToList();
-
-            return View(curtidas);
-        }
-
-        // GET: CurtidaMangaController/Details/5
-        public ActionResult Details(int id)
-        {
-            CurtidaManga? oCur = _db.CurtidaManga.Find(id);
-            return View(oCur);
-        }
-
-        // GET: CurtidaMangaController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
 
         // POST: CurtidaMangaController/Create
         [HttpPost]

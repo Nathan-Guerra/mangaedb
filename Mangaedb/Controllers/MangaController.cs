@@ -1,6 +1,6 @@
 ﻿using Mangaedb.Model;
 using Microsoft.AspNetCore.Mvc;
-
+using System.Dynamic;
 namespace Mangaedb.Controllers
 {
     public class MangaController : Controller, IDisposable
@@ -17,14 +17,20 @@ namespace Mangaedb.Controllers
         // GET: MangaController/Details/5
         public ActionResult Details(int id)
         {
-            Manga? oMan = _db.Manga.Find(id);
+            dynamic models = new ExpandoObject();
+            models.Manga = _db.Manga.Find(id);
 
-            if (oMan == null)
+            if (models.Manga != null)
+            {
+                models.Comentarios = _db.Comentario.Where(c => c.IdManga == id).ToList();
+                models.CurtidasManga = _db.CurtidaManga.Where(cm => cm.IdManga == id).Count();
+
+                return View(models);
+            }
+            else
             {
                 return RedirectToAction("Index");
             }
-
-            return View(oMan);
         }
 
         // GET: MangaController/Create

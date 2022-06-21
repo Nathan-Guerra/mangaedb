@@ -10,3 +10,5 @@ C:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb.Model\obj\Debug\net6.0\Mang
 C:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb.Model\obj\Debug\net6.0\refint\Mangaedb.Model.dll
 C:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb.Model\obj\Debug\net6.0\Mangaedb.Model.pdb
 C:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb.Model\obj\Debug\net6.0\ref\Mangaedb.Model.dll
+C:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb.Model\bin\Debug\net6.0\Mangaedb.Model.runtimeconfig.json
+C:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb.Model\obj\Debug\net6.0\Mangaedb.Model.genruntimeconfig.cache

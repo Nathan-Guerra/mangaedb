@@ -8,30 +8,10 @@ namespace Mangaedb.Controllers
     {
         MangaedbContext _db = new MangaedbContext();
 
-        public ActionResult Index()
-        {
-            List<Comentario> comentarios = _db.Comentario.ToList();
-
-            return View(comentarios);
-        }
-
-        // GET: ComentarioController/Details/5
-        public ActionResult Details(int id)
-        {
-            Comentario? oCom = _db.Comentario.Find(id);
-            return View(oCom);
-        }
-
-        // GET: ComentarioController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
         // POST: ComentarioController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public bool Create(IFormCollection collection)
         {
             try
             {
@@ -44,11 +24,11 @@ namespace Mangaedb.Controllers
                 _db.Comentario.Add(oCom);
                 _db.SaveChanges();
 
-                return RedirectToAction(nameof(Index));
+                return true;
             }
             catch
             {
-                return View();
+                return false;
             }
         }
 

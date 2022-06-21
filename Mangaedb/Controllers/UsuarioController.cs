@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Mangaedb.Model;
 using Mangaedb.Services;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Mangaedb.Controllers
 {
@@ -127,6 +129,13 @@ namespace Mangaedb.Controllers
             {
                 return View();
             }
+        }
+
+        private String encryptPassword(string password)
+        {
+            byte[] encode = Encoding.UTF8.GetBytes(password);
+            
+            return Convert.ToBase64String(encode);
         }
     }
 }
