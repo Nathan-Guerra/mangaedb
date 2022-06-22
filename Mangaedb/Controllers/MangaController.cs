@@ -1,5 +1,6 @@
 ﻿using Mangaedb.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Dynamic;
 namespace Mangaedb.Controllers
 {
@@ -20,22 +21,40 @@ namespace Mangaedb.Controllers
             dynamic models = new ExpandoObject();
             models.Manga = _db.Manga.Find(id);
 
-            if (models.Manga != null)
-            {
-                models.Comentarios = _db.Comentario.Where(c => c.IdManga == id).ToList();
-                models.CurtidasManga = _db.CurtidaManga.Where(cm => cm.IdManga == id).Count();
-
-                return View(models);
-            }
-            else
+            if (models.Manga == null)
             {
                 return RedirectToAction("Index");
             }
+
+            models.Comentarios = _db.Comentario.Where(c => c.IdManga == id).ToList();
+            models.CurtidasManga = _db.CurtidaManga.Where(cm => cm.IdManga == id).Count();
+            models.Categorias = new List<Categoria>();
+
+            List<CategoriaManga> cm = _db.CategoriaManga.Where(cm => cm.IdManga == id).ToList();
+
+            if (cm.Count > 0)
+            {
+                foreach (CategoriaManga catMan in cm)
+                {
+                    Categoria? oCat = _db.Categoria.Find(catMan.IdCategoria);
+
+                    if (oCat != null)
+                    {
+                        models.Categorias.Add(oCat);
+                    }
+                }
+            }
+
+            return View(models);
         }
 
         // GET: MangaController/Create
         public ActionResult Create()
         {
+            List<Categoria> oCat = _db.Categoria.ToList();
+
+            ViewBag.Categorias = oCat;
+
             return View();
         }
 
@@ -50,7 +69,24 @@ namespace Mangaedb.Controllers
                 oMan.Nome = collection["Nome"];
                 oMan.Sinopse = collection["Sinopse"];
 
+                String[] categorias = collection["Categorias"];
+
+
+                categorias.GetType();
+
                 _db.Manga.Add(oMan);
+
+                _db.SaveChanges();
+
+                foreach (string idCategoria in categorias)
+                {
+                    CategoriaManga oCm = new CategoriaManga();
+                    oCm.IdManga = oMan.Id;
+                    oCm.IdCategoria = int.Parse(idCategoria);
+
+                    _db.CategoriaManga.Add(oCm);
+                }
+
                 _db.SaveChanges();
 
                 return RedirectToAction(nameof(Index));

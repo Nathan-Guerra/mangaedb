@@ -8,77 +8,77 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Mangaedb
 build_property.RootNamespace = Mangaedb
-build_property.ProjectDir = c:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb\
+build_property.ProjectDir = C:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb
+build_property.MSBuildProjectDirectory = C:\Users\nguer\Documents\trab\Mangaedb.View\Mangaedb
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Categoria/Create.cshtml]
+[C:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Categoria/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Categoria/Delete.cshtml]
+[C:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Categoria/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Categoria/Details.cshtml]
+[C:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Categoria/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Categoria/Edit.cshtml]
+[C:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Categoria/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Categoria/Index.cshtml]
+[C:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Categoria/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Home/Index.cshtml]
+[C:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Home/Privacy.cshtml]
+[C:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Manga/Create.cshtml]
+[C:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Manga/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuZ2FcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Manga/Delete.cshtml]
+[C:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Manga/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuZ2FcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Manga/Details.cshtml]
+[C:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Manga/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuZ2FcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Manga/Edit.cshtml]
+[C:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Manga/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuZ2FcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Manga/Index.cshtml]
+[C:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Manga/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuZ2FcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Shared/Error.cshtml]
+[C:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/_ViewImports.cshtml]
+[C:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/_ViewStart.cshtml]
+[C:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Shared/_Layout.cshtml]
+[C:/Users/nguer/Documents/trab/Mangaedb.View/Mangaedb/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-un98voi72k

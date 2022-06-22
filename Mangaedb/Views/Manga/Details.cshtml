@@ -10,19 +10,33 @@
 
 <main>
     <article class="row">
-        <div class="col-sm-2">
-            @Model.CurtidasManga curtidas
+        <div class="col-sm-4">
+            <div class="comentario col-sm-8"></div>
         </div>
         <div class="col-sm-8">
+            <p>
+                Tags:
+                @if (Model.Categorias.Count > 0)
+                {
+                    @foreach (Categoria cat in Model.Categorias)
+                    {
+                        <span class="d-inline">@cat.Nome</span>;
+                    }
+                }
+                else
+                {
+                    <span>sem tags</span>
+                }
+            </p>
             @Model.Manga.Sinopse
         </div>
 
         <div class="comentarios row d-flex justify-content-end">
             <div class="form-comentario col-sm-8">
                 <form asp-controller="Comentario" asp-action="Create" method="post">
-                    <input type="hidden" name="IdUsuario" value="1"/>
-                    <input type="hidden" name="IdManga" value="@Model.Manga.Id"/>
-                    
+                    <input type="hidden" name="IdUsuario" value="1" />
+                    <input type="hidden" name="IdManga" value="@Model.Manga.Id" />
+
                     <div class="form-group">
                         <label class="control-label" for="Conteudo">Comente:</label>
                         <textarea class="form-control" name="Conteudo" size="280" rows="4"></textarea>

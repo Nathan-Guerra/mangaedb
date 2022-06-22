@@ -1,10 +1,12 @@
-﻿@model Mangaedb.Model.Manga
+﻿@using Mangaedb.Model;
+
+@model Mangaedb.Model.Manga
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Adicionar Mangá";
 }
 
-<h1>Create</h1>
+<h1>Criar</h1>
 
 <h4>Manga</h4>
 <hr />
@@ -21,7 +23,16 @@
                 <label asp-for="Sinopse" class="control-label"></label>
                 <input asp-for="Sinopse" class="form-control" />
                 <span asp-validation-for="Sinopse" class="text-danger"></span>
-            </div
+            </div>
+            <div class="form-group">
+                <label>Categorias:</label>
+                <select name="Categorias" multiple="multiple">
+                @foreach (Categoria cat in ViewBag.Categorias)
+                {
+                    <option value="@cat.Id" >@cat.Nome</option>
+                }
+                </select>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -35,6 +46,6 @@
 
 @section Scripts {
     @{
-    await Html.RenderPartialAsync("_ValidationScriptsPartial");
-}
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
