@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Mangaedb.Model.Manga>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Mangás";
 }
 
-<h1>Index</h1>
+<h1>Mangás</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Novo Mangá</a>
 </p>
 <table class="table">
     <thead>
@@ -29,12 +29,16 @@
                     @Html.DisplayFor(modelItem => item.Nome) <small class="text-secondary"><em># @Html.DisplayFor(modelItem => item.Id)</em></small>
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Sinopse)
+                    @item.Sinopse.Substring(0, item.Sinopse.Length > 50 ? 50 : item.Sinopse.Length) 
+                    @if(item.Sinopse.Length > 50)
+                    {
+                        <span>...</span>
+                    }
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Visualizar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Remover</a>
                 </td>
             </tr>
         }

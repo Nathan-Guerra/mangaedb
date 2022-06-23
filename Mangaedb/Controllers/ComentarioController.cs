@@ -11,7 +11,7 @@ namespace Mangaedb.Controllers
         // POST: ComentarioController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public bool Create(IFormCollection collection)
+        public IActionResult Create(IFormCollection collection)
         {
             try
             {
@@ -24,11 +24,11 @@ namespace Mangaedb.Controllers
                 _db.Comentario.Add(oCom);
                 _db.SaveChanges();
 
-                return true;
+                return Redirect(Request.Headers["Referer"].ToString());
             }
             catch
             {
-                return false;
+                return Redirect("/");
             }
         }
 
@@ -43,18 +43,18 @@ namespace Mangaedb.Controllers
 
                 if (oCom == null)
                 {
-                    return RedirectToAction(nameof(Index));
+                    return Redirect(Request.Headers["Referer"].ToString());
                 }
 
                 _db.Comentario.Remove(oCom);
 
                 _db.SaveChanges();
 
-                return RedirectToAction(nameof(Index));
+                return Redirect(Request.Headers["Referer"].ToString());
             }
             catch
             {
-                return View();
+                return Redirect("/");
             }
         }
     }

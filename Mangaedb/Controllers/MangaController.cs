@@ -1,6 +1,6 @@
 ﻿using Mangaedb.Model;
+using Mangaedb.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Dynamic;
 namespace Mangaedb.Controllers
 {
@@ -10,7 +10,7 @@ namespace Mangaedb.Controllers
 
         public ActionResult Index()
         {
-            List<Manga> mangas = _db.Manga.ToList();
+            List<Manga> mangas = MangaService.GetMangas();
 
             return View(mangas);
         }
@@ -26,7 +26,7 @@ namespace Mangaedb.Controllers
                 return RedirectToAction("Index");
             }
 
-            models.Comentarios = _db.Comentario.Where(c => c.IdManga == id).ToList();
+            models.Comentarios = _db.Comentario.Where(c => c.IdManga == id).OrderByDescending(c => c.CreatedAt).ToList();
             models.CurtidasManga = _db.CurtidaManga.Where(cm => cm.IdManga == id).Count();
             models.Categorias = new List<Categoria>();
 
@@ -51,9 +51,7 @@ namespace Mangaedb.Controllers
         // GET: MangaController/Create
         public ActionResult Create()
         {
-            List<Categoria> oCat = _db.Categoria.ToList();
-
-            ViewBag.Categorias = oCat;
+            ViewBag.Categorias = CategoriaService.GetCategorias();
 
             return View();
         }
@@ -71,23 +69,11 @@ namespace Mangaedb.Controllers
 
                 String[] categorias = collection["Categorias"];
 
-
-                categorias.GetType();
-
                 _db.Manga.Add(oMan);
 
                 _db.SaveChanges();
 
-                foreach (string idCategoria in categorias)
-                {
-                    CategoriaManga oCm = new CategoriaManga();
-                    oCm.IdManga = oMan.Id;
-                    oCm.IdCategoria = int.Parse(idCategoria);
-
-                    _db.CategoriaManga.Add(oCm);
-                }
-
-                _db.SaveChanges();
+                CategoriaMangaService.SetCategoriaManga(oMan.Id, collection["Categorias"]);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -105,6 +91,18 @@ namespace Mangaedb.Controllers
             {
                 return RedirectToAction(nameof(Index));
             }
+
+            List<CategoriaManga> lCm = CategoriaMangaService.GetCategoriaManga(id);
+
+            List<int> idsCategorias = new();
+
+            foreach (CategoriaManga cm in lCm)
+            {
+                idsCategorias.Add(cm.IdCategoria);
+            }
+
+            ViewBag.Categorias = CategoriaService.GetCategorias();
+            ViewBag.CategoriasSelecionadas = idsCategorias;
 
             return View(oMan);
         }
@@ -129,11 +127,13 @@ namespace Mangaedb.Controllers
 
                 _db.SaveChanges();
 
+                CategoriaMangaService.SetCategoriaManga(oMan.Id, collection["Categorias"]);
+
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return RedirectToAction(nameof(Index));
             }
         }
 

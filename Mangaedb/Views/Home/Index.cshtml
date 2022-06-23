@@ -1,8 +1,71 @@
-﻿@{
+﻿@using Mangaedb.Model
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div>
-    <h1 class="display-4 text-center">MangAEDB</h1>
-    <p class="display-6">Av1 - Sistemas de Informacao</p>
+    <main role="main">
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-3">Mangaedb</h1>
+                <p>
+                    Aqui você pode visualizar os mangás mais populares de acordo com a quantidade de likes que ele recebe na plataforma. Experimente um dos filtros abaixo e você
+                    irá se surpreender!
+                </p>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link @{if (ViewBag.days == 1) { <text>active</text> } }" href="/?days=1">Hoje</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @{if (ViewBag.days == 7) { <text>active</text> } }" href="/?days=7">Últimos 7 dias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @{if (ViewBag.days == 15) { <text>active</text> } }" href="/?days=15">Últimos 15 dias</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link @{if (ViewBag.days == 30) { <text>active</text> } }" href="/?days=30">Últimos 30 dias</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <!-- Example row of columns -->
+            <div class="row">
+                @foreach (KeyValuePair<Manga, int> idx in ViewBag.TopMangas)
+                {
+                    <div class="col-md-4">
+                        <h2>@idx.Key.Nome</h2>
+                        <p>
+                            @idx.Key.Sinopse.Substring(0, idx.Key.Sinopse.Length > 500 ? 500: idx.Key.Sinopse.Length)
+                            @if (idx.Key.Sinopse.Length > 500)
+                            {
+                                <span>...</span>
+                            }
+                        </p>
+                        <p>@idx.Value Curtidas</p>
+                        <p><a class="btn btn-secondary" asp-controller="Manga" asp-action="Details" asp-route-id="@idx.Key.Id" role="button">Ver Mangá »</a></p>
+                    </div>
+                }
+            </div>
+
+            <hr>
+
+        </div> <!-- /container -->
+
+        <p><a class="btn btn-primary" href="#" role="button">Ver lista completa »</a></p>
+
+    </main>
 </div>

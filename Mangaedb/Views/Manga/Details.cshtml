@@ -11,24 +11,26 @@
 <main>
     <article class="row">
         <div class="col-sm-4">
-            <div class="comentario col-sm-8"></div>
-        </div>
-        <div class="col-sm-8">
             <p>
                 Tags:
                 @if (Model.Categorias.Count > 0)
                 {
                     @foreach (Categoria cat in Model.Categorias)
                     {
-                        <span class="d-inline">@cat.Nome</span>;
+                        <span class="badge mb-2 bg-warning text-dark">@cat.Nome</span>
                     }
                 }
                 else
                 {
-                    <span>sem tags</span>
+                    <span>Este mangá ainda não possui tags...</span>
                 }
             </p>
-            @Model.Manga.Sinopse
+        </div>
+        <div class="col-sm-8">
+
+            <p>
+                @Model.Manga.Sinopse
+            </p>
         </div>
 
         <div class="comentarios row d-flex justify-content-end">
@@ -41,8 +43,9 @@
                         <label class="control-label" for="Conteudo">Comente:</label>
                         <textarea class="form-control" name="Conteudo" size="280" rows="4"></textarea>
                     </div>
+                    <br />
                     <div class="form-group">
-                        <input type="submit" value="Enviar Comentário" class="btn btn-primary" />
+                        <input type="submit" value="Enviar Comentário" class="btn btn-sm btn-primary" />
                     </div>
                 </form>
             </div>
@@ -54,12 +57,31 @@
             {
                 @foreach (Comentario oCom in Model.Comentarios)
                 {
-                    <div class="comentario col-sm-8">@oCom.Conteudo</div>
+                    <div class="comentario col-sm-8">
+                        <hr />
+                        <div class="d-flex align-content-center">
+                            <div class="flex-grow-1">
+                                @oCom.Conteudo
+                            </div>
+                            <small class="text-muted">
+                                (@oCom.CreatedAt)
+
+                            </small>
+                            <form asp-action="Delete" asp-controller="Comentario" class="">
+                                <input type="hidden" name="Id" value="@oCom.Id" />
+                                <input type="submit" value="x" style="font-size: 10px;display: flex;border-radius: 50%;padding: 0px 7px 4px;margin: 2px;" class="btn btn-danger" />
+                            </form>
+                        </div>
+
+                    </div>
+
                 }
             }
         </div>
     </article>
 </main>
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar para a Lista</a>
+    <br />
+    <a href="/" class=" btn btn-secondary">Voltar para a Página Principal</a>
 </div>

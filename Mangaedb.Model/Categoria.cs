@@ -27,5 +27,10 @@ namespace Mangaedb.Model
 
         [InverseProperty("IdCategoriaNavigation")]
         public virtual ICollection<CategoriaManga> CategoriaManga { get; set; }
+
+        public override string ToString()
+        {
+            return Nome;
+        }
     }
 }
