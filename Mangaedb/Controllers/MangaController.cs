@@ -167,5 +167,12 @@ namespace Mangaedb.Controllers
                 return View();
             }
         }
+
+        public IActionResult ShowMangasFromCategoria(int idCategoria)
+        {
+            ViewBag.MangaCategoria = MangaService.GetMangasFromCategoria(idCategoria);
+
+            return View("ShowMangaCategoria");
+        }
     }
 }
